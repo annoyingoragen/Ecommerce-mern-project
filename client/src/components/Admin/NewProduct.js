@@ -1,7 +1,7 @@
 import React, { Fragment, useEffect, useState } from "react";
 import "./newProductStyles.css";
 import { useSelector, useDispatch } from "react-redux";
-import { clearErrors, addAdminProduct } from "../../actions/productAction";
+import { clearErrors, addAdminProduct, addAdminProductReset } from "../../actions/productAction";
 import { useAlert } from "react-alert";
 import { Button } from "@material-ui/core";
 import MetaData from "../layout/MetaData";
@@ -47,7 +47,7 @@ const NewProduct = () => {
     if (success) {
       alert.success("Product Created Successfully");
       navigate("/admin/dashboard");
-    //   dispatch({ type: NEW_PRODUCT_RESET });
+      dispatch(addAdminProductReset());
     }
   }, [dispatch, alert, error, navigate, success]);
 

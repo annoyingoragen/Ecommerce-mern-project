@@ -3,11 +3,11 @@
  <img width=800px height=1600px src="https://raw.githubusercontent.com/annoyingoragen/My-Portfolio-/main/client/Web%20capture_7-1-2023_0828_fatimaaliportfolio.web.app.jpeg" alt="Project logo"></a>
 </p>
 
-<h3 align="center">Portfolio</h3>
+<h3 align="center">Ecommerce</h3>
 
 
 
-<p align="center"> it is my portfolio developed by me   to display my projects, my social media handles my resume and my skills. Viewer can also send me a message and drop their email for me.
+<p align="center"> it is an ecommerce website 
 <br> 
 </p>
 
@@ -22,7 +22,7 @@
 
 ## 🧐 Demo <a name = "demo"></a>
 
-👉 demo: https://fatimaaliportfolio.web.app
+👉 demo: https://ecommerce-mern-project-9996b.web.app/
 
 ## 🚀 Features <a name = "features"></a>
 - Add projects

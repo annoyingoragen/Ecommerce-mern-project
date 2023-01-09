@@ -21,19 +21,19 @@ const ProcessOrder = () => {
     const dispatch = useDispatch();
     const alert = useAlert();
     const {id}=useParams();
-    console.log(id);
+
 
 
   const {  error, isUpdated,isLoading,orderDetails } = useSelector((state) => state.order);
-console.log(orderDetails)
+
   const updateOrderSubmitHandler = (e) => {
     e.preventDefault();
-
+    console.log(status)
     const myForm = new FormData();
 
     myForm.set("status", status);
 
-    dispatch(updateAdminOrder(id, myForm));
+    dispatch(updateAdminOrder(id, {"status": status}));
   };
 
   

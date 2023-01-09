@@ -2,6 +2,8 @@ import axios from  'axios';
 
 const API=axios.create({baseURL:'https://us-central1-ecommerce-mern-project-backend.cloudfunctions.net/app' ,withCredentials: true,});
 
+
+// const API=axios.create({baseURL:'http://localhost:5000/' ,withCredentials: true,});
 API.interceptors.request.use((req)=>{
     console.log(req);
     

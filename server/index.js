@@ -1,18 +1,16 @@
-import express  from "express";
-import cors from 'cors';
-import productRoutes from './routes/productRoute.js'
-import userRoutes from './routes/userRoute.js'
-import orderRoutes from './routes/orderRoute.js'
-import paymentRoutes from './routes/paymentRoute.js'
-import dotenv from 'dotenv';
-import bodyParser from "body-parser";
-import mongoose from 'mongoose';
-import cookieParser from "cookie-parser";
-import cloudinary from 'cloudinary';
-import fileUpload from "express-fileupload";
-import path from 'path';
-const __dirname = path.resolve();
-// import errHandler from './middleware/error.js'
+const express =require( "express");
+const cors =require( "cors");
+const productRoutes =require( "./routes/productRoute.js");
+const userRoutes =require( "./routes/userRoute.js");
+const orderRoutes =require( "./routes/orderRoute.js");
+const paymentRoutes =require( "./routes/paymentRoute.js");
+const dotenv =require( "dotenv");
+const bodyParser =require( "body-parser");
+const mongoose =require( "mongoose");
+const cookieParser =require( "cookie-parser");
+const cloudinary =require( "cloudinary");
+const fileUpload =require( "express-fileupload");
+
 
 
 
@@ -23,7 +21,7 @@ app.use(bodyParser.json({limit:'50mb',extended:true}));
 
 app.use(bodyParser.urlencoded({limit:'50mb',extended:true}));
 const corsOptions ={
-  origin:'https://ecommerce-mern-project-9996b.web.app', 
+  origin:'http://localhost:3000', 
   credentials:true,            //access-control-allow-credentials:true
   optionSuccessStatus:200
 }

@@ -163,7 +163,7 @@ export const forgotPassword=(email)=> async (dispatch)=>{
         catch(error)
         {
             console.log(error.response.data.message);
-            dispatch(userActions.RESET_PASSWORD_RESET_PASSWORD_FORGOT_PASSWORD_UPDATE_PASSWORD_UPDATE_PROFILE_LOGOUT_ERROR(error.response.data.message));
+            dispatch(userActions.RESET_PASSWORD_FORGOT_PASSWORD_UPDATE_PASSWORD_UPDATE_PROFILE_LOGOUT_ERROR(error.response.data.message));
 
         }
 }

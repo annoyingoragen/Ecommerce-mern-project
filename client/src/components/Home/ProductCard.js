@@ -11,7 +11,8 @@ const ProductCard=({product})=>{
     return(
         <div>
              <Link to={`/product/${product._id}`} className="productCard">
-                <img src={product.images[0].url} alt={product.name} />
+                {(product.images[0]) && (
+                <img src={product.images[0].url} alt={product.name} />)}
 
                 <p>{product.name}</p>
                     <div>

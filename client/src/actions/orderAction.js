@@ -124,7 +124,7 @@ export const updateAdminOrder=(id,productData)=>async(dispatch)=>{
         return data;
     };
     try {
-        console.log(`order data ${productData.name}`);
+        console.log(`order data ${productData}`);
         dispatch(orderActions.START_LOADING());
         const data=await sendRequest(id,productData);
         console.log(data);

@@ -1,21 +1,25 @@
-const  Express  =require( "express");
-const { deleteOrder, getAllOrders, getOrder, getOrdersOfLoggedInUser, newOrder, updateOrder } =require( "../controllers/orderController.js");
+const Express =require( "express");
+const {deleteOrder, getAllOrders,
+  getOrder, getOrdersOfLoggedInUser,
+  newOrder, updateOrder} =require( "../controllers/orderController.js");
 
 
-const auth=require( "../middleware/auth.js");
-const{ authorizedRoles } =require( "../middleware/auth.js");
+const {auth}=require( "../middleware/auth.js");
+const {authorizedRoles} =require( "../middleware/auth.js");
+// eslint-disable-next-line new-cap
 const router=Express.Router();
 
-router.get('/myorders',auth,getOrdersOfLoggedInUser);
-router.post('/new',auth,newOrder);
-router.get('/myorders',auth,getOrdersOfLoggedInUser);
-router.get('/allorders',auth,authorizedRoles("admin"),getAllOrders);
-router.get('/:id',auth,getOrder);
+router.route("/myorders").get( auth, getOrdersOfLoggedInUser);
+router.route("/new").post( auth, newOrder);
+router.route("/myorders").get( auth, getOrdersOfLoggedInUser);
+router.route("/allorders").
+    get( auth, authorizedRoles("admin"), getAllOrders);
+router.route("/:id").get( auth, getOrder);
 
-router.put('/:id',auth,authorizedRoles("admin"),updateOrder);
+router.route("/:id").put( auth, authorizedRoles("admin"), updateOrder);
 
 
-router.delete('/:id',auth,authorizedRoles("admin"),deleteOrder);
+router.route("/:id").delete( auth, authorizedRoles("admin"), deleteOrder);
 
 
 module.exports=router;

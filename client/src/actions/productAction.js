@@ -94,6 +94,9 @@ export const addAdminProduct=(productData)=>async(dispatch)=>{
     }  
 }
 
+export  const addAdminProductReset=()=> async (dispatch)=>{
+    dispatch(productActions.ADD_ADMIN_PRODUCT_RESET());
+}
 
 export const deleteAdminProduct=(id)=>async(dispatch)=>{
     const sendRequest=async(id)=>{

@@ -1,6 +1,6 @@
 <p align="center">
   <a href="" rel="noopener">
- <img width=800px height=1600px src="https://raw.githubusercontent.com/annoyingoragen/My-Portfolio-/main/client/Web%20capture_7-1-2023_0828_fatimaaliportfolio.web.app.jpeg" alt="Project logo"></a>
+ <img width=800px height=1600px src="https://raw.githubusercontent.com/annoyingoragen/Ecommerce-mern-project/main/client/WhatsApp%20Image%202023-01-10%20at%201.41.22%20AM.jpeg" alt="Project logo"></a>
 </p>
 
 <h3 align="center">Ecommerce</h3>
@@ -25,12 +25,23 @@
 👉 demo: https://ecommerce-mern-project-9996b.web.app/
 
 ## 🚀 Features <a name = "features"></a>
-- Add projects
-- Delete Projects
-- Update ANd Add about
-- Delete About
-- Add skills
-- Delete skill
+- Add products
+- Delete products
+- Update products
+- Delete products
+- Authentication
+- Authorization
+- Pagination
+- Search
+- Filters
+- Ratings
+- Reviews
+- Cart
+- Stripe Payment
+- Order History
+- profile Update
+- Forgot password
+- Change Password
 
 
 ## 🏁 Getting Started <a name = "getting_started"></a>
@@ -57,4 +68,4 @@ npm run start
 
 ## 🎉 Acknowledgements <a name = "acknowledgement"></a>
 
-- Followed a tutorial by Javascript Mastery and sicpack programmer to create this project 
+- Followed a tutorial by sixpack programmer to create this project 

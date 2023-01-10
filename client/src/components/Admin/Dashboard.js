@@ -11,6 +11,7 @@ import { Chart as ChartJS } from "chart.js/auto";
 import { getAdminOrders } from "../../actions/orderAction.js";
 // import { getAllUsers } from "../../actions/userAction.js";
 import MetaData from "../layout/MetaData";
+import { fetchAdminUsers } from "../../actions/userAction.js";
 
 const Dashboard = () => {
   const dispatch = useDispatch();
@@ -34,7 +35,7 @@ const Dashboard = () => {
   useEffect(() => {
     dispatch(getAdminProducts());
     dispatch(getAdminOrders());
-    // dispatch(getAllUsers());
+    dispatch(fetchAdminUsers());
   }, [dispatch]);
 
   let totalAmount = 0;

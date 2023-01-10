@@ -1,11 +1,11 @@
 import axios from  'axios';
 
-const API=axios.create({baseURL:'https://us-central1-ecommerce-mern-project-backend.cloudfunctions.net/app' ,withCredentials: true,});
+// const API=axios.create({baseURL:'https://us-central1-ecommerce-mern-project-backend.cloudfunctions.net/app' ,withCredentials: true,});
 
 
-// const API=axios.create({baseURL:'http://localhost:5000/' ,withCredentials: true,});
+const API=axios.create({baseURL:'http://localhost:5000/' ,withCredentials: true,});
 API.interceptors.request.use((req)=>{
-    console.log(req);
+    // console.log(req);
     
     return req;
 });
@@ -53,7 +53,14 @@ export const forgotPassword=(email)=>API.post('/password/forgot',email,config);
 export const resetPassword=(token,passwords)=>API.put(`/password/reset/${token}`,passwords ,config);
 
 export const gettingStripeApiKey=()=>API.get('/stripeapikey');
-export const paymentProcess=(paymentData)=>API.post('/payment/process',paymentData,config);
+export const paymentProcess=(paymentData)=>API.post('/payment/process',paymentData,
+{
+     headers: {
+         "Content-Type": "application/json", 
+         Authorization: `Bearer pk_test_51MErSySCeuzYa3kc5GDyNGRelOel1GHZ1eMoh5yyTzsmoytrEyzhrlbSpEdDiokBQcIh0S88Z216KvyNG3381Htw00U7hq58nF`       }
+    
+
+});
 
 
 export const createOrder=(order)=>API.post('/order/new',order,config);

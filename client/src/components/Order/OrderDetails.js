@@ -8,9 +8,11 @@ import { getOrderDetails, clearErrors } from "../../actions/orderAction";
 import Loader from "../layout/Loader/Loader";
 import { useAlert } from "react-alert";
 
+import { useNavigate } from "react-router-dom";
+
 const OrderDetails = ({ match }) => {
   const { orderDetails, error, isLoading } = useSelector((state) => state.order);
-
+  const navigate=useNavigate();
   const dispatch = useDispatch();
   const alert = useAlert();
 
@@ -19,6 +21,7 @@ const OrderDetails = ({ match }) => {
     if (error) {
       alert.error(error);
       dispatch(clearErrors());
+      navigate('/orders');
     }
     console.log(id);
     dispatch(getOrderDetails(id));

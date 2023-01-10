@@ -44,7 +44,7 @@ import NotFound from './components/layout/NotFound/NotFound';
 
 function App() {
   const { isAuthenticated, user } = useSelector((state) => state.user);
-  const [stripeApiKey, setStripeApiKey] = useState("");
+  // const [stripeApiKey, setStripeApiKey] = useState("");
 
 
   useEffect(()=>{
@@ -56,23 +56,24 @@ function App() {
 
     store.dispatch(loadUser());
 
-    getStripeApiKey();
+    // getStripeApiKey();
   },[]);
 
-  async function getStripeApiKey() {
-    const { data } = await gettingStripeApiKey();
-    const final=await data;
-    console.log(final);
+  // async function getStripeApiKey() {
+  //   const { data } = await gettingStripeApiKey();
+  //   const final=await data;
+  //   console.log(final);
 
-    setStripeApiKey(data.stripeApiKey);
-  } 
-  console.log(user)
+  //   setStripeApiKey(data.stripeApiKey);
+  // } 
+  // console.log(user)
+  const stripePromise = loadStripe("pk_test_51MErSySCeuzYa3kc5GDyNGRelOel1GHZ1eMoh5yyTzsmoytrEyzhrlbSpEdDiokBQcIh0S88Z216KvyNG3381Htw00U7hq58nF");
   return (
     <BrowserRouter>
     
       <Header />
       {isAuthenticated && <UserOptions user={user} />}
-      <Elements stripe={loadStripe(stripeApiKey)}>
+      <Elements stripe={stripePromise}>
       <Routes>
         
         <Route exact path="/"element={<Home/>} />

@@ -11,8 +11,6 @@ import {
   useStripe,
   useElements,
 } from "@stripe/react-stripe-js";
-
-import axios from "axios";
 import "./paymentStyles.css";
 import CreditCardIcon from "@mui/icons-material/CreditCard";
 import EventIcon from "@mui/icons-material/Event";
@@ -20,6 +18,7 @@ import VpnKeyIcon from "@mui/icons-material/VpnKey";
 import { paymentProcess } from "../../api";
 import { useNavigate } from "react-router-dom";
 import { clearErrors, createOrder } from "../../actions/orderAction";
+import { emptyCart } from "../../actions/cartAction";
 // import { createOrder, clearErrors } from "../../actions/orderAction";
 
 const Payment = ( ) => {
@@ -31,7 +30,7 @@ const Payment = ( ) => {
   const stripe = useStripe();
   const elements = useElements();
   const payBtn = useRef(null);
-
+  console.log(stripe);
   const { shippingInfo, cartItems } = useSelector((state) => state.cart);
   const { user } = useSelector((state) => state.user);
   const { error } = useSelector((state) => state.order);
@@ -58,7 +57,7 @@ const Payment = ( ) => {
      
       const { data } = await paymentProcess(paymentData);
 
-
+      console.log(stripe);
       const client_secret = data.client_secret;
 
       if (!stripe || !elements) return;
@@ -94,7 +93,11 @@ const Payment = ( ) => {
 
           dispatch(createOrder(order));
 
+          dispatch(emptyCart());
+
           navigate("/success");
+
+
         } else {
           alert.error("There's some issue while processing payment ");
         }

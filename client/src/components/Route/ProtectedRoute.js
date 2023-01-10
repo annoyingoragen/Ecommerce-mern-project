@@ -43,7 +43,7 @@ const ProtectedRoute = ({isAdmin}) => {
                   }
             if(isLoading===false && isAuthenticated===true)
             {
-              console.log("inside ot")
+              // console.log("inside ot")
                return <Outlet/>
             }
           return (isLoading===false && <Navigate to="/login" />)

@@ -40,6 +40,17 @@ export const removeItemFromCart=(itemId)=>async(dispatch,getState)=>{
     }
 }
 
+export const emptyCart=()=>async(dispatch,getState)=>{
+    try {
+        
+
+        dispatch(cartActions.REMOVE_EVERTHING_FROM_CART());
+       
+    localStorage.setItem("cartItems",JSON.stringify(getState().cart.cartItems));
+    } catch (error) {
+    console.log(error)
+    }
+}
 
 export const saveShippingInfo=(data)=>async(dispatch)=>{
     dispatch(cartActions.SAVE_SHIPPING_INFO(data));

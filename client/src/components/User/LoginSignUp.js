@@ -96,11 +96,12 @@ const LoginSignUp=()=>{
 
       const alert = useAlert();
       let location = useLocation();
-      console.log(location);
+      
       
       const redirect=location.search? location.search.split("=")[1]:"account";
-      console.log(redirect)
+     
       useEffect(()=>{
+        console.log(error);
           if(error){
             alert.error(error);  
               dispatch(clearErrors()) 

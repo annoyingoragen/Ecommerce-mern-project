@@ -36,6 +36,7 @@ const userSlice=createSlice({
         },
         LOGOUT(state){
             state.user={};
+            console.log(state.user);
             state.isAuthenticated=false;
         },
         RESET_PASSWORD_FORGOT_PASSWORD_UPDATE_PASSWORD_UPDATE_PROFILE_LOGOUT_ERROR(state,action){

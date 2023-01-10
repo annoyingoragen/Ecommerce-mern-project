@@ -30,7 +30,10 @@ const cartSlice=createSlice({
         REMOVE_ITEM_FROM_CART(state,action){
             state.cartItems=state.cartItems.filter((i)=>(i.product!==action.payload));
         },  
-        
+        REMOVE_EVERTHING_FROM_CART(state,action){
+            
+            state.cartItems=[];
+        },        
         CLEAR_ERRORS(state){
             state.error=null;  
         },

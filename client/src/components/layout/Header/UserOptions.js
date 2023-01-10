@@ -51,7 +51,7 @@ const UserOptions=({user})=>{
       dispatch(logout());
       alert.success("Logout Successfully");
     }
-   console.log(user)
+  //  console.log(user)
     return(<Fragment>
         <Backdrop open={open} style={{ zIndex: "10" }} />
         <SpeedDial

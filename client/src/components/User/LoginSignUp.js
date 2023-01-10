@@ -35,7 +35,7 @@ const LoginSignUp=()=>{
     
       const { name, email, password } = user;
 
-      const [avatar, setAvatar] = useState(profile);
+      const [avatar, setAvatar] = useState("");
       const [avatarPreview, setAvatarPreview] = useState(profile);
       const [title,setTitle]=useState("Login");
 
@@ -72,7 +72,14 @@ const LoginSignUp=()=>{
         myForm.set("name", name);
         myForm.set("email", email);
         myForm.set("password", password);
+        if(avatar!==profile){
+            
         myForm.set("avatar", avatar);
+        }
+        else{
+            
+        myForm.set("avatar", "");
+        }
         dispatch(register(myForm));
       };
 
@@ -103,7 +110,12 @@ const LoginSignUp=()=>{
       useEffect(()=>{
         console.log(error);
           if(error){
-            alert.error(error);  
+            if(error.message){
+                alert.error(error.message); 
+            }
+           else{
+            alert.error(error);
+           }
               dispatch(clearErrors()) 
           }
           if(isAuthenticated){

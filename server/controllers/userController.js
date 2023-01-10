@@ -7,12 +7,20 @@ const cloudinary =require( "cloudinary");
 
 exports.registerUser=async (req, res)=>{
   try {
-    const myCloud=await cloudinary.v2.uploader.upload(req.body.avatar, {
-      folder: "avatars",
-      width: 150,
-      crop: "scale",
-      timeout: 120000,
-    });
+    let myCloud;
+    if(req.body.avatar!=""){
+       myCloud=await cloudinary.v2.uploader.upload(req.body.avatar, {
+        folder: "avatars",
+        width: 150,
+        crop: "scale",
+        timeout: 120000,
+      });
+    }else{
+       myCloud={public_id:'default',
+      secure_url:'default'
+      }
+    }
+    
     const {name, email, password}=req.body;
     const user=await userModel.create({
       name, email, password,
